@@ -1,0 +1,97 @@
+Fasikl Developer Interview Assignment
+Thank you for your interest in Fasikl. As part of the second-round interview, we invite shortlisted candidates to complete a short practical engineering exercise based on realistic product scenarios.
+The goal is not to build a polished production system. We want to understand how you think, scope a problem, write code, make tradeoffs, and communicate decisions.
+Time Expectation
+Please spend approximately 3-4 hours.
+A strong submission does not need to be feature-complete.
+What to Submit
+1.A GitHub repository or zip file with your code
+2.A short README with setup/run instructions
+3.A brief note (1-2 page at most or markdown) covering:
+○What you built
+○Key design decisions
+○What you would improve next
+○Any AI tools or external resources used
+4.Be ready to give a short walkthrough during the interview
+Choose One of the Following Problems:
+Problem A - Physician Portal Dashboard
+Build a small physician-facing dashboard that summarizes patient status.
+Core Features
+●View patient list
+●See current status
+●Open patient details
+●Add one useful feature (filtering, search, highlight action-needed patients, timeline, etc.)
+Sample Data
+[
+  {"id":"P001","name":"Jane Doe","status":"Registration Pending","next_action":"Complete registration","updated":"2026-04-10"},
+  {"id":"P002","name":"John Smith","status":"Documentation Needed","next_action":"Awaiting chart notes","updated":"2026-04-11"},
+  {"id":"P003","name":"Maria Chen","status":"Ready for Fitting","next_action":"Schedule fitting","updated":"2026-04-09"},
+  {"id":"P004","name":"Robert Lee","status":"Active User","next_action":"None","updated":"2026-04-08"},
+  {"id":"P005","name":"Emily Davis","status":"Resupply Due","next_action":"Confirm address","updated":"2026-04-11"},
+  {"id":"P006","name":"Daniel Kim","status":"Support Issue Open","next_action":"Call patient","updated":"2026-04-11"},
+  {"id":"P007","name":"Lisa Brown","status":"Registration Pending","next_action":"Resend link","updated":"2026-04-07"},
+  {"id":"P008","name":"Kevin Patel","status":"Ready for Fitting","next_action":"Schedule fitting","updated":"2026-04-10"},
+  {"id":"P009","name":"Olivia Garcia","status":"Documentation Needed","next_action":"Need signature","updated":"2026-04-09"},
+  {"id":"P010","name":"Michael Wu","status":"Active User","next_action":"None","updated":"2026-04-06"}
+]
+Please Briefly Discuss
+●What information should appear first and why?
+●What would matter in production (security, privacy, reliability)?
+●What would you build next with one more week?
+
+Problem B - Triage & Escalation Workflow
+Build a simple internal system to track patient inquiries and operational tasks.
+Core Features
+●View work queue
+●Assign owner: available owner - Clinical, Support, Provider Support, Billing, and Operations
+●Update status: available status - Open, Pending, In Progress, Escalated, and Closed
+●Mark escalated items
+●Add one useful rule (priority, overdue escalation, routing, reminders, etc.)
+Sample Data
+[
+  {"id":"T001","title":"Skin irritation during use","priority":"High","owner":"Clinical","status":"Open"},
+  {"id":"T002","title":"Device not turning on","priority":"High","owner":"Support","status":"Open"},
+  {"id":"T003","title":"Billing question","priority":"Low","owner":"Billing","status":"Open"},
+  {"id":"T004","title":"Missing prescription","priority":"Medium","owner":"Provider Support","status":"Pending"},
+  {"id":"T005","title":"Battery draining quickly","priority":"Medium","owner":"Support","status":"Open"},
+  {"id":"T006","title":"Portal login issue","priority":"Low","owner":"Support","status":"Open"},
+  {"id":"T007","title":"Urgent physician callback","priority":"High","owner":"Provider Support","status":"Escalated"},
+  {"id":"T008","title":"Resupply overdue","priority":"Medium","owner":"Operations","status":"Pending"},
+  {"id":"T009","title":"Incorrect shipping address","priority":"Medium","owner":"Operations","status":"Open"},
+  {"id":"T010","title":"Duplicate patient request","priority":"Low","owner":"Operations","status":"Open"}
+]
+Please Briefly Discuss
+●How should priority be determined?
+●What should trigger escalation?
+●How do you prevent tasks from being forgotten?
+●What would you build next with one more week?
+Problem C - Patient Message AI Assistant
+Build a simple patient-facing speech AI feature embedded inside the portal or mobile app. The goal is to help patients get quick answers, complete simple tasks, and reduce avoidable support calls, while allowing escalation to human support when needed.
+You may use rules, mock APIs, an LLM, or a simple hybrid approach. Text transcripts are sufficient.
+Core Features
+Input a patient question (speech transcript or text) and return some combination of:
+●Topic/category (e.g., device issue, clinical concern, billing, logistics, account/access)
+●Helpful response (canned reply, FAQ snippet, or generated text)
+●Action for next step (auto_reply, route_to_<team>, escalate_urgent)
+Add one useful feature of your choice, for example:
+●Link or navigation suggestion inside the portal/app
+●Conversation history or follow-up context
+Sample Data
+[
+  {"id":"C001","transcript":"My device stopped turning on yesterday and I use it every morning."},
+  {"id":"C002","transcript":"The stimulation feels stronger than usual and uncomfortable."},
+  {"id":"C003","transcript":"My doctor sent the prescription last week. Did you receive it?"},
+  {"id":"C004","transcript":"I cannot log into the portal."},
+  {"id":"C005","transcript":"When will my supplies arrive?"},
+  {"id":"C006","transcript":"Can I use the device while traveling?"},
+  {"id":"C007","transcript":"My skin is red after using the device."},
+  {"id":"C008","transcript":"How do I charge the device?"},
+  {"id":"C009","transcript":"I changed insurance. What should I do next?"},
+  {"id":"C010","transcript":"I missed a few days. Can I restart therapy today?"}
+]
+Please Briefly Discuss
+●What types of requests should be handled automatically vs routed to a human? How do you distinguish them?
+●How would this integrate with existing support workflows?
+●What failure mode concerns you most?
+●What would you build next with one more week?
+
