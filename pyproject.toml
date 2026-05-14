@@ -1,0 +1,41 @@
+[project]
+name = "fasikl-demo"
+version = "0.1.0"
+description = "Patient-facing AI assistant backend demo using FastAPI, LangGraph, and optional OpenAI."
+readme = "README.md"
+requires-python = "==3.12.13"
+dependencies = [
+    "fastapi>=0.115.0",
+    "langchain-openai>=0.3.0",
+    "langgraph>=0.2.0",
+    "pydantic>=2.9.0",
+    "uvicorn[standard]>=0.30.0",
+]
+
+[dependency-groups]
+dev = [
+    "httpx>=0.27.0",
+    "pytest>=8.3.0",
+    "ruff>=0.8.0",
+]
+
+[project.scripts]
+fasikl-demo = "fasikl_assistant.cli:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/fasikl_assistant"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
